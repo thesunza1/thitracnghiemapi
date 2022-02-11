@@ -1,0 +1,30 @@
+/* div.hd {
+    display: block;
+    height: 30px;
+    width: 100%;
+    background:red;
+} */
+
+h5.ct-dl {
+    text-align: center;
+}
+div.if-ct-md , div.cr-ct-md {
+    max-width: 1300px ;
+    width: 80%;
+}
+.m-b-110 {
+    max-width: 80% ;
+}
+input  {
+    box-shadow: 0px 0px 2px black;
+    color: black !important;
+}
+select {
+    color:black !important;
+}
+div.modal-header, div.modal-footer {
+    background: rgba(224, 224, 57, 0.404);
+}
+div.cr-hd-md , div.cr-ft-md {
+    background : rgba(39, 182, 39, 0.466);
+}

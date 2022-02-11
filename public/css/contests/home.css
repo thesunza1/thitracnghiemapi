@@ -1,0 +1,111 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    background-color: rgb(161, 161, 161);
+    font-family: Arial, Helvetica, sans-serif;
+    /* display: grid; */
+    place-items: center;
+    /* min-height: 100vh;
+    width: 100vw; */
+}
+
+body:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: opacity(80%);
+}
+
+div.header h1 {
+    text-align: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container-ct {
+    margin-bottom: 40px;
+    position: relative;
+    /* grid-template-columns: 600px; */
+    border-radius: 5px;
+    box-shadow: 0 15px 20px rgb(125 125 125);
+    background-image: url('https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?size=626&ext=jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: local;
+    filter: opacity(97%)
+    /**/
+}
+
+.btn {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    background-color: #fc9400;
+    color: #fff;
+    padding: 22px 45px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.294);
+}
+
+.container__text {
+    padding: 40px 40px 0;
+}
+
+.container__text h1 {
+    /* color: black; */
+    font-weight: 300;
+    /* background: linear-gradient(90deg, #ffffff 0%, #8c9eca 25%, #5294e0 50%, #9952e0 75%, #4974ff 100%); */
+    background: linear-gradient( 90deg, #ffffff 0%, #ff3636 25%, #5294e0 50%, #9952e0 75%, #4974ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container__text__star span {
+    font-size: 0.8rem;
+    color: #ffa800;
+    margin: -5px 0 20px;
+}
+
+.container__text__star p {
+    font-size: 0.9rem;
+}
+
+.container__text__timing {
+    display: flex;
+    margin: 20px 0 10px;
+}
+
+.container__text__timing .container__text__timing_time {
+    margin-right: 40px;
+}
+
+.container__text__timing h2 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: black;
+}
+
+.container__text__timing p {
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
