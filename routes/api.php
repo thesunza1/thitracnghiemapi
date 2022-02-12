@@ -4,9 +4,7 @@ use App\Http\Controllers\ContestsController;
 use App\Http\Controllers\ExamQueRelController;
 use App\Http\Controllers\ExamStaffsController;
 use App\Http\Controllers\StaffsController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Laravel\Sanctum\Sanctum;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +37,6 @@ Route::middleware(['auth:sanctum'])->group(
         //examQueRels controller
         Route::Post('exam/check', [ExamQueRelController::class, 'apiCheck']);
         Route::Post('exam/unCheck', [ExamQueRelController::class, 'apiUnCheck']);
+        Route::Post('exam/submit', [ExamStaffsController::class, 'apiSubmitExam']);
     }
 );

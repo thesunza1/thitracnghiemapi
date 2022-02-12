@@ -20,4 +20,7 @@ class ExamStaffs extends Model
     public function examQueRels() {
         return $this->hasMany(ExamQueRel::class, 'exam_staff_id');
     }
+    public function exam() {
+        return $this->belongsTo(Exams::class,'exam_id');
+    }
 }

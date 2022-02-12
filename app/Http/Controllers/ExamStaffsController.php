@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\ExamQueRel;
 use Illuminate\Http\Request;
 use App\Models\Exams;
+use App\Models\ExamStaffs;
+use Carbon\Carbon;
 
 class ExamStaffsController extends Controller
 {
@@ -39,10 +41,25 @@ class ExamStaffsController extends Controller
         })->orderBy('order_question')->get();
 
         $numQues = ExamQueRel::where('exam_staff_id', $examStaffId)->select('order_question')->distinct('order_question')->count();
+        $examStaff = ExamStaffs::find($examStaffId);
+        // if($examStaff->time_limit == null) {
+        $timeLimit = date('Y-m-d H:i:s', time() + ($examStaff->exam->examtime_at * 60));
+        $examStaff->time_limit = $timeLimit;
+        $examStaff->save();
+        //
+        $hour = ((int)date('H', time() + ($examStaff->exam->examtime_at * 60)) - (int)date('H')) * 60 +
+            ((int)date('i', time() + ($examStaff->exam->examtime_at * 60)) - (int)date('i'));
+
+        // }
+
         return response()->json([
             'questions' => $res,
             'numQuest' => $numQues,
             'statuscode' => 1,
+            'minutes' => $hour,
         ]);
+    }
+    function apiSubmitExam(Request $request) {
+
     }
 }
