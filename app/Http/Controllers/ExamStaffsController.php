@@ -6,6 +6,7 @@ use App\Models\ExamQueRel;
 use Illuminate\Http\Request;
 use App\Models\Exams;
 use App\Models\ExamStaffs;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class ExamStaffsController extends Controller
@@ -59,7 +60,21 @@ class ExamStaffsController extends Controller
             'minutes' => $hour,
         ]);
     }
-    function apiSubmitExam(Request $request) {
+    function apiSubmitExam(Request $request)
+    {
+        $userId = $request->user()->id;
 
+        $examStaffId = $request->examStaffId;
+
+        $bindings = [
+            'v_exam_id' => $userId,
+            'v_estaff_id' => $examStaffId
+        ];
+        $procedure_name = 'THUCTAP.P_CACL_POINT';
+        $init = DB::executeProcedure($procedure_name, $bindings);
+
+        return response()->json([
+            'statuscode' => 1 ,
+        ]);
     }
 }
