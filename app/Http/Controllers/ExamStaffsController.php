@@ -39,19 +39,19 @@ class ExamStaffsController extends Controller
             return $q->select('id', 'noidung');
         })->with('question', function ($q) {
             return $q->select('id', 'content');
-        })->orderBy('order_question')->get();
+        })->orderBy('order_question')->orderBy('order_relies')->get();
 
         $numQues = ExamQueRel::where('exam_staff_id', $examStaffId)->select('order_question')->distinct('order_question')->count();
         $examStaff = ExamStaffs::find($examStaffId);
-        // if($examStaff->time_limit == null) {
-        $timeLimit = date('Y-m-d H:i:s', time() + ($examStaff->exam->examtime_at * 60));
-        $examStaff->time_limit = $timeLimit;
-        $examStaff->save();
-        //
-        $hour = ((int)date('H', time() + ($examStaff->exam->examtime_at * 60)) - (int)date('H')) * 60 +
-            ((int)date('i', time() + ($examStaff->exam->examtime_at * 60)) - (int)date('i'));
+        if ($examStaff->time_limit == null) {
+            $timeLimit = date('Y-m-d H:i:s', time() + ($examStaff->exam->examtime_at * 60));
+            $examStaff->time_limit = $timeLimit;
+            $examStaff->save();
+            //
+        }
+        $hour = ((int)date('H',($examStaff->time_limit )) - (int)date('H')) * 60 +
+            ((int)date('i', ($examStaff->time_limit )) - (int)date('i'));
 
-        // }
 
         return response()->json([
             'questions' => $res,
@@ -74,7 +74,7 @@ class ExamStaffsController extends Controller
         $init = DB::executeProcedure($procedure_name, $bindings);
 
         return response()->json([
-            'statuscode' => 1 ,
+            'statuscode' => 1,
         ]);
     }
 }

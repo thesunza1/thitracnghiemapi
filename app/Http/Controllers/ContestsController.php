@@ -137,7 +137,7 @@ class ContestsController extends Controller
     //api
     public function ApiGetContests(Request $request) {
         $staffId = $request->user()->id;
-        $special_contests = Contest_specials::where('staff_id', $staffId)->orderByDesc('created_at')->with('contest.testmaker')->paginate(2);
+        $special_contests = Contest_specials::where('staff_id', $staffId)->orderByDesc('created_at')->with('contest.testmaker')->paginate(3);
 
         return response()->json([
             'statuscode' => 1,
