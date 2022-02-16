@@ -8,7 +8,7 @@
     <div class="container">
         <br>
         <div class="header">
-            <h1> danh sách cuộc thi </h1>
+            <h1> Danh Sách Cuộc Thi </h1>
         </div>
         <br>
         <div class="row">
@@ -33,15 +33,15 @@
                             <h1>{{ $contest->contest->name }}</h1>
                             <div class="container__text__timing">
                                 <div class="container__text__timing_time">
-                                    <h2>mã dề thi </h2>
+                                    <h2>Mã dề thi </h2>
                                     <p>{{ $contest->contest->id }}</p>
                                 </div>
                                 <div class="container__text__timing_time">
-                                    <h2>ngày thi</h2>
+                                    <h2>Ngày thi</h2>
                                     <p> {{ date('d-m-Y H:i:s',$contest->contest->begintime_at) }}</p>
                                 </div>
                                 <div class="container__text__timing_time">
-                                    <h2>người tạo </h2>
+                                    <h2>Người tạo </h2>
                                     <p>{{ $contest->contest->staff->name }}</p>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                             <div class="container__text__timing">
 
                                 <div class="container__text__timing_time">
-                                    <h2>ngày tạo</h2>
+                                    <h2>Ngày tạo</h2>
                                     <p>{{ $contest->contest->created_at }}</p>
                                 </div>
                                 {{-- <div class="container__text__timing_time">
@@ -61,7 +61,7 @@
                                 </div> --}}
 
                             </div>
-                            <a class="btn" href="{{ route('exam.index', ['id' => $contest->contest->id]) }}"> xem các bài thi </a>
+                            <a class="btn" href="{{ route('exam.index', ['id' => $contest->contest->id]) }}"> Xem các bài thi </a>
                         </div>
 
                     </div>

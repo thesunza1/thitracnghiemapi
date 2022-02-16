@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contests;
 use App\Models\ExamQueRel;
 use Illuminate\Http\Request;
 use App\Models\Exams;
@@ -22,12 +23,14 @@ class ExamStaffsController extends Controller
     {
         $userId = $request->user()->id;
         $contestId = $request->contestId;
+        $contest = Contests::where('id',$contestId)->pluck('content')->first();
         $exams = Exams::where('contest_id', $contestId)->with('examstaffs', function ($q) use ($userId) {
             return $q->where('staff_id', $userId);
         })->with('staff')->orderByDesc('created_at')->get();
         return response()->json([
             'exams' => $exams,
             'statuscode' => 1,
+            'contest' => $contest,
         ]);
     }
     //get exam when to exam
