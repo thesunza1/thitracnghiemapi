@@ -25,7 +25,7 @@
             <p class="wow fadeIn" data-wow-duration="2s">View your all questions here.</p>
         </div>
     </div>
-    <a href="/question/add" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Add Question</a>
+    <a href="/question/add" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Thêm câu hỏi</a>
     <div class="dataTable ">
         <table class="table table-striped table-bordered table-hover" id="question_list">
             <thead class="">

@@ -8,7 +8,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
-                    <label for="contest">Tên kì thi</label>
+                    <label for="contest">Tên Kì Thi</label>
                     <input id="contest" class="form-control border" readonly type="text" name="contest"
                         value="{{$contest->name}}">
                 </div>

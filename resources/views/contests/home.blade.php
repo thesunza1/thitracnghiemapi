@@ -8,11 +8,10 @@
 <div class="">
     <div>
         <br>
-        <h3 class="text-center">Danh sách kì thi</h3>
+        <h3 class="text-center">Danh sách Kì thi</h3>
     </div>
     <div class="container pl-5">
-        <a href="{{route('contest.add')}}" class="btn btn-success"><i class="fas fa-plus"></i> Add
-            Contest</a>
+        <a href="{{route('contest.add')}}" class="btn btn-success"><i class="fas fa-plus"></i> Thêm Cuộc thi</a>
     </div>
 <div class="limiter">
     <div class="container-table100 " style="background-color: whitesmoke !important;">
@@ -21,7 +20,7 @@
                 <thead>
                     <tr class="row100 head">
                         <th class="column100 column1 pl-4" data-column="column1">Id</th>
-                        <th class="column100 column2 pl-4" data-column="column2">Tên kì thi</th>
+                        <th class="column100 column2 pl-4" data-column="column2">Tên Kì thi</th>
                         <th class="column100 column3 pl-4" data-column="column3">Người ra đề</th>
                         <th class="column100 column4 pl-4" data-column="column4">Thời gian bắt đầu</th>
                         {{-- <th class="column100 column5 pl-4" data-column="column5">Chi nhánh thi</th> --}}

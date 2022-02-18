@@ -10,7 +10,11 @@
     .table100 {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-
+    }
+    #tablelayout {
+        border-radius: 10px;
+        box-shadow: 0px 1px 10px rgb(168, 168, 168);
+        overflow: hidden;
     }
 </style>
 @endsection
@@ -21,7 +25,7 @@
 <div class="limiter">
     <br>
     <div class="header-text">
-        <h1>cuộc thi : {{ $contest->name }} </h1>
+        <h1> Kì thi : {{ $contest->name }} </h1>
     </div>
     <div class="container-table100">
 

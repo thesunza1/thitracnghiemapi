@@ -45,7 +45,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="text-center my-3">Tạo kì thi</h2>
+    <h2 class="text-center my-3">Tạo Cuộc thi</h2>
     <div class="d-flex">
         <div class="col-md-3 p-0 mb-5">
         <a href="{{route('contests')}}" class="btn btn-success form-control">Danh sách kì thi</a></div>
@@ -54,7 +54,7 @@
         <div class="row">
             @csrf
             <div class="form-group col-md-5">
-                <label for="contest">Kì thi</label>
+                <label for="contest"> Kì thi</label>
                 <input type="text" name="contest" id="contest" class="form-control border" placeholder="Tên kì thi..." >
             </div>
             <div class="form-group col-md-4">

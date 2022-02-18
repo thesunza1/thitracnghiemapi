@@ -29,7 +29,7 @@
 <div class="limiter">
     <br>
     <div class="header-text">
-        <h1>nhân viên</h1>
+        <h1> Danh Sách Nhân Viên</h1>
 
     </div>
 
@@ -75,7 +75,7 @@
                         <td class="column100 column8" data-column="column8">
                             <button class="btn btn-success mr-1 cr-btn" data-toggle='modal' data-target='#cr-modal'
                                 name="id">
-                                + add staff</button>
+                                + Thêm nhân viên</button>
                         </td>
                     </tr>
                     @foreach ($staffs as $staff)

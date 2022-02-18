@@ -118,7 +118,7 @@
                     <ul class="navbar-nav ml-5">
 
                         <li class="nav-item pt-1">
-                            <a class="nav-link" href="{{ route('home') }}">Exams</a>
+                            <a class="nav-link" href="{{ route('home') }}">Cuộc thi</a>
                         </li>
                         {{-- <li class="nav-item pt-1">
                             <a class="nav-link" href="#">My exams</a>
@@ -126,19 +126,19 @@
 
                         @if ( Auth::user()->role_id !=1 )
                         <li class="nav-item pt-1">
-                            <a class="nav-link" href="{{ route('questions')}}">Questions</a>
+                            <a class="nav-link" href="{{ route('questions')}}"> Câu hỏi</a>
                         </li>
                         <li class="nav-item pt-1">
-                            <a class="nav-link" href="{{ route('contests')}}">Examinations</a>
+                            <a class="nav-link" href="{{ route('contests')}}"> Quản lý cuộc thi</a>
                         </li>
                         @endif
 
                         @if (Auth::user()->role_id ==2 )
                         <li class="nav-item pt-1">
-                            <a class="nav-link" href="{{ route('staff.index') }}">Staffs</a>
+                            <a class="nav-link" href="{{ route('staff.index') }}"> Nhân viên</a>
                         </li>
                         <li class="nav-item pt-1">
-                            <a class="nav-link" href="{{ route('branch.index') }}">Branchs</a>
+                            <a class="nav-link" href="{{ route('branch.index') }}"> Phòng</a>
                         </li>
                         @endif
 
