@@ -11,7 +11,7 @@
         <h3 class="text-center">Danh sách Kì thi</h3>
     </div>
     <div class="container pl-5">
-        <a href="{{route('contest.add')}}" class="btn btn-success"><i class="fas fa-plus"></i> Thêm Cuộc thi</a>
+        <a href="{{route('contest.add')}}" class="btn btn-success"><i class="fas fa-plus"></i> Thêm Kỳ thi</a>
     </div>
 <div class="limiter">
     <div class="container-table100 " style="background-color: whitesmoke !important;">
