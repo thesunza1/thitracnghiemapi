@@ -10,6 +10,8 @@ class ExamStaffs extends Model
     use HasFactory;
     const UPDATED_AT = NULL;
 
+    protected $guarded = [];
+
     protected $casts = [
         'time_limit' => 'timestamp'
     ];

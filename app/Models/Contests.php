@@ -18,16 +18,19 @@ class Contests extends Model
     const UPDATED_AT = NULL;
     // const CREATED_AT = NULL;
     protected $dates = ['created_at','begintime_at'];
-    protected $fillable = [
-        'name',
-        'testmaker_id',
-        'branchcontest_id',
-        'begintime_at' ,
-        'created_at' ,
-        'content'
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'testmaker_id',
+    //     'branchcontest_id',
+    //     'begintime_at' ,
+    //     'created_at' ,
+    //     'content'
+    // ];
+    protected $gaurded = [];
     protected $casts = [
-        'begintime_at' => 'timestamp'
+        'begintime_at' => 'timestamp',
+        'date_limit' => 'timestamp',
+        'last_create' => 'timestamp',
     ];
 
     public function staff() {
@@ -49,4 +52,10 @@ class Contests extends Model
     public function testmaker() {
         return $this->belongsTo(Staffs::class, 'testmaker_id');
     }
+
+    public function contest_theme() {
+        return $this->hasMany(ContestTheme::class, 'contest_id' );
+    }
+
+
 }

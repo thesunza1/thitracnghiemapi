@@ -9,11 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 class Branchs extends Model
 {
     use HasFactory;
-
+    protected $guarded = [];
     const UPDATED_AT = null;
-
-    public function staffs(){
+    public function staffs()
+    {
         return $this->hasMany(Staffs::class, 'branch_id');
     }
-
 }

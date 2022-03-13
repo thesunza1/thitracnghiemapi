@@ -13,6 +13,7 @@ class ExamQueRel extends Model
 {
     use HasFactory;
     const UPDATED_AT = NULL;
+    protected $gaurded = [];
     public function examstaff() {
         return $this->belongsTo(ExamStaffs::class, 'exam_staff_id');
     }
