@@ -17,7 +17,7 @@ class Contests extends Model
 
     const UPDATED_AT = NULL;
     // const CREATED_AT = NULL;
-    protected $dates = ['created_at','begintime_at'];
+    protected $dates = ['created_at','begintime_at','date_limit'];
     // protected $fillable = [
     //     'name',
     //     'testmaker_id',
@@ -53,7 +53,7 @@ class Contests extends Model
         return $this->belongsTo(Staffs::class, 'testmaker_id');
     }
 
-    public function contest_theme() {
+    public function contest_themes() {
         return $this->hasMany(ContestTheme::class, 'contest_id' );
     }
 
