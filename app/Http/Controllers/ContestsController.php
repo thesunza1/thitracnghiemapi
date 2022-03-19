@@ -70,7 +70,7 @@ class ContestsController extends Controller
             $contest->content = $request->content;
             $contest->testmaker_id = $request->user()->id;
             $contest->special_staff = 1;
-            $contest->date_limit = $request->date_limix;
+            $contest->date_limit = $request->date_limit;
 
             //automake exam
             $automake = $request->auto_make;
@@ -107,6 +107,16 @@ class ContestsController extends Controller
                     $participant->staff_id = $staff;
                     $contest->contest_specials()->save($participant);
                 }
+            }
+
+            if ($automake == 'on') {
+
+                $bindings = [
+                    'v_contest_id' => $contest->id,
+                ];
+
+                $insert_exam = 'thuctap.p_i_exam';
+                $init = DB::executeProcedure($insert_exam, $bindings);
             }
         });
         return Redirect('/contests');
