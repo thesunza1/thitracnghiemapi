@@ -22,9 +22,10 @@
                         <th class="column100 column1 pl-4" data-column="column1">Id</th>
                         <th class="column100 column2 pl-4" data-column="column2">Tên Kì thi</th>
                         <th class="column100 column3 pl-4" data-column="column3">Người ra đề</th>
-                        <th class="column100 column4 pl-4" data-column="column4">Thời gian bắt đầu</th>
-                        {{-- <th class="column100 column5 pl-4" data-column="column5">Chi nhánh thi</th> --}}
+                        <th class="column100 column4 pl-4" data-column="column4">Thời gian bắt đầu-kết thúc</th>
                         <th class="column100 column6 pl-4" data-column="column6">Ngày tạo</th>
+                        <th class="column100 column6 pl-4" data-column="column7"> Tự động</th>
+                        <th class="column100 column6 pl-4" data-column="column7"> lần trong bn ngày </th>
                         <th class="column100 column7 pl-4" data-column="column7">Thao tác</th>
                     </tr>
                 </thead>
@@ -36,9 +37,10 @@
                         <td class="column100 column2" data-column="column2">{{$contest->name}}</td>
                         <td class="column100 column3" data-column="column3">{{$contest->staff->name}}</td>
                         <td class="column100 column4" data-column="column4">
-                            {{date('d-m-Y H:i:s',$contest->begintime_at)}}</td>
-                        {{-- <td class="column100 column5" data-column="column5">...</td> --}}
+                            {{date('d-m-Y H:i:s',$contest->begintime_at) }} - {{date('d-m-Y H:i:s', $contest->date_limit)  }}</td>
                         <td class="column100 column6" data-column="column6">{{$contest->created_at}}</td>
+                        <td class="column100 column6" data-column="column7">{{$contest->auto_make_exam == 1? 'có' : 'không'}}</td>
+                        <td class="column100 column6" data-column="column7">{{$contest->num_date_create}}</td>
                         <td class="column100 column7 px-2" data-column="column7">
                             <div class="d-flex">
                                 @if (Auth::user()->role->name =='admin' || $contest->testmaker_id == Auth::user()->id )

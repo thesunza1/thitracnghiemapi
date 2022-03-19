@@ -29,7 +29,7 @@ class ContestsController extends Controller
     public function home(Request $request)
     {
         // $contests = Contests::where('branchcontest_id', $request->user()->branch_id )->get();
-        $special_contests = Contest_specials::where('staff_id', Auth::user()->id)->get();
+        $special_contests = Contest_specials::where('staff_id', $request->user()->id)->get();
         return view('home')->with('contests', $special_contests);
     }
 

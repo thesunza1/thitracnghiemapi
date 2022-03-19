@@ -13,8 +13,12 @@
         <br>
         <div class="row">
             @foreach ($contests as $contest)
-                @foreach (App\Models\Exams::where('contest_id', $contest->contest_id)->get() as $exam)
-                    @if(App\Models\ExamStaffs::where('exam_id', $exam->id)->get()->count() !== 0)
+                {{-- @foreach (App\Models\Exams::where('contest_id', $contest->contest_id)->get() as $exam) --}}
+                    {{-- @if(App\Models\ExamStaffs::where('exam_id', $exam->id)->get()->count() !== 0) --}}
+                {{-- @if ($contest->contest->exams->count() > 0)
+                    @foreach ( $contest->contest->exams as $exam)
+
+                    @if($exam->examstaffs->count() !== 0)
                         @php
                             $able = true;
                         @endphp
@@ -25,7 +29,14 @@
                         @endphp
                     @endif
                 @endforeach
-                @if($able)
+
+                @else
+                        @php
+                            $able = true;
+                        @endphp
+
+                @endif --}}
+                @if(true)
                     <div class="col-md-1"></div>
                     <div class="container-ct col-md-5">
 
