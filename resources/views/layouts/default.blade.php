@@ -36,7 +36,7 @@
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial !important;
-            background-color: whitesmoke;
+            background-color: rgb(255, 255, 255);
         }
 
         .container {

@@ -35,7 +35,7 @@
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial !important;
-            background: whitesmoke;
+            background: rgb(255, 255, 255);
             background-image: url("{{ asset('img/loginimg.png') }}") ;
 
             background-repeat: no-repeat;

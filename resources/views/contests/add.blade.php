@@ -66,12 +66,11 @@
         <form action="{{route('contest.create')  }}" method="post" id="create_form">
             <div class="row">
                 @csrf
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
                     <label for="contest"> Kì thi</label>
                     <input type="text" name="contest" id="contest" class="form-control border"
                         placeholder="Tên kì thi...">
                 </div>
-                <div class="col-md-12"><br></div>
                 <div class="form-group col-md-4">
                     <label for="begin_time">Thời gian bắt đầu</label>
                     <input type="datetime-local" name="begin_time" id="begin_time" class="form-control border">
@@ -81,7 +80,7 @@
                     <input type="datetime-local" name="date_limit" id="date_limit" class="form-control border">
                 </div>
                 <div class='col-md-12 row'>
-                    <div class="form-group col-md-5 pr-0">
+                    <div class="form-group col-md-7 pr-0">
                         <label for="">Chi nhánh</label>
                         <div class="border rounded branch_name">
                             @foreach ($branchs as $branch)
@@ -123,129 +122,132 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group col-md-12 row">
-                    <div class="form-group col-md-2">
-                        <label for="auto_make"> Tự động tạo cuộc thi</label>
-                        <input type="checkbox" id="autoMakeBtn" name='auto_make'>
-                    </div>
-                    <div id="autoMakeExam" style="display:none" class="row full-width">
-                        <div class="form-group col-md-2">
-                            <label for="relymix"> Trộn câu trả lời</label>
-                            <input type="checkbox" name="relymix">
+                <div class="card w-100">
+                    <div class="card-body  col-md-12 row">
+                        <div class="input-group form-group col-md-2">
+                            <label for="auto_make"> Tự động tạo cuộc thi</label>
+                            <input type="checkbox" id="autoMakeBtn" name='auto_make'>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="questionmix">Trộn câu hỏi</label>
-                            <input type="checkbox" name="questionmix">
-                        </div>
-                        <div class="col-md-12"><br></div>
-                        <div class="col-md-12 row form-group">
-                            <div class="col-md-3 input-group form-group">
-                                <label for="num_date_create">Tạo cách n ngày: </label>
-                                <input type="number" class="form-control border" min="1" max="30" value="1"
-                                    name="num_date_create">
+                        <div id="autoMakeExam" style="display:none" class="row full-width">
+                            <div class="form-group col-md-2">
+                                <label for="relymix"> Trộn câu trả lời</label>
+                                <input type="checkbox" name="relymix">
                             </div>
-                            <div class="col-md-3 form-group input-group ">
-                                <label for="create_num">Số lần tạo trong ngày có thể tạo: </label>
-                                <input type="number" class="form-control border" name="create_num" min="1" max="3"
-                                    value="1">
+                            <div class="form-group col-md-2">
+                                <label for="questionmix">Trộn câu hỏi</label>
+                                <input type="checkbox" name="questionmix">
                             </div>
-                            <div class="col-md-3 form-group input-group ">
-                                <label for="time_create">Thời gian sau mỗi lần tạo(hours): </label>
-                                <input type="number" class="form-control border" min="4" max="24" value="4"
-                                    name="time_create">
-                            </div>
-
-                            <div class="col-md-3 form-group input-group ">
-                                <label for="time_create">thời gian thi cho mỗi bài( ngày ): </label>
-                                <input type="number" class="form-control border" name="examtime_at" min="1" max="50"
-                                    value="15">
-                            </div>
-                            <div class="col-md-3 form-group input-group ">
-                                <label for="time_create">Thời gian có thể thi cho mỗi bài (hours): </label>
-                                <input type="number" class="form-control border" name="examcan" min="1" max="10"
-                                    value="1">
-                            </div>
-                        </div>
-                        <div class="card w-50">
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <h5 class="text-center"> Chọn chủ đề và đề thi </h5>
+                            <div class="col-md-12"><br></div>
+                            <div class="col-md-12 row form-group">
+                                <div class="col-md-3 input-group form-group">
+                                    <label for="num_date_create">Tạo cách n ngày: </label> <br>
+                                    <input type="number" class="form-control border" min="1" max="30" value="1"
+                                        name="num_date_create">
                                 </div>
-                                <div class="row full-width w-100">
-                                    <div class="exam-theme col-md-12">
-                                        <div class="exam-active"></div>
-                                        <div class="exam-content row full-width">
-                                            <div class="col-md-12 row ">
-                                                <div class="col-md-3 form-group">
-                                                    <p class="title">
-                                                        Chọn chủ đề
-                                                    </p>
-                                                </div>
-                                                <div class="col-md-3 form-group">
-                                                    <p class="title">
-                                                        chọn độ khó
-                                                    </p>
-                                                </div>
-                                                <div class="col-md-3 form-group">
-                                                    <p class="title">
-                                                        số câu
-                                                    </p>
-                                                </div>
-                                                <div class="col-md-3 form-group">
-                                                    <div onclick="addrow()" class="btn btn-primary"> Thêm</div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <hr>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="exam-val row full-width">
-                                            <div class="col-md-12 row rowexams mb-3">
-                                                <div class=" col-md-3 input-group">
-                                                    <select name="exam_theme[]" class="form-control border" id="">
-                                                        @foreach($themes as $theme)
-                                                        <option value="{{$theme->id}}"> {{$theme->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-3 input-group" class="form-control border">
-                                                    <select name="exam_level[]" id="">
-                                                        @foreach($levels as $level)
-                                                        <option value="{{$level->id  }}">
-                                                            {{$level->difficult }}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-3 input-group">
-                                                    <input type="number" name="questionnum[]" value="0"
-                                                        class="form-control border">
-                                                </div>
-                                                <div class="col-md-3 input-group">
-                                                    <div onclick="deleterow(this)" class="btn btn-danger"
-                                                        class="form-control border"> xóa dòng
+                                <div class="col-md-3 form-group input-group ">
+                                    <label for="create_num">Số lần tạo trong ngày có thể tạo: </label> <br>
+                                    <input type="number" class="form-control border" name="create_num" min="1" max="3"
+                                        value="1">
+                                </div>
+                                <div class="col-md-3 form-group input-group ">
+                                    <label for="time_create">Thời gian sau mỗi lần tạo(hours): </label> <br>
+                                    <input type="number" class="form-control border" min="4" max="24" value="4"
+                                        name="time_create">
+                                </div>
+
+                                <div class="col-md-3 form-group input-group ">
+                                    <label for="time_create">thời gian thi cho mỗi bài( ngày ): </label> <br>
+                                    <input type="number" class="form-control border" name="examcan" min="1" max="500"
+                                        value="60">
+                                </div>
+                                <div class="col-md-3 form-group input-group ">
+                                    <label for="time_create">Thời gian thi cho mỗi bài(min): </label> <br>
+                                    <input type="number" class="form-control border" name="examtime_at" min="1" max="50"
+                                        value="15">
+                                </div>
+                            </div>
+                            <div class="card w-50">
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <h5 class="text-center"> Chọn chủ đề và đề thi </h5>
+                                    </div>
+                                    <div class="row full-width w-100">
+                                        <div class="exam-theme col-md-12">
+                                            <div class="exam-active"></div>
+                                            <div class="exam-content row full-width">
+                                                <div class="col-md-12 row ">
+                                                    <div class="col-md-3 form-group">
+                                                        <p class="title">
+                                                            Chọn chủ đề
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-3 form-group">
+                                                        <p class="title">
+                                                            chọn độ khó
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-3 form-group">
+                                                        <p class="title">
+                                                            số câu
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-3 form-group">
+                                                        <div onclick="addrow()" class="btn btn-primary"> Thêm</div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <hr>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="exam-footer row full-width">
-                                            <div class="col-md-12 row ">
-                                                <div class="col-md-3 form-group">
-                                                    <p class="title">
-                                                        tổng số câu:
-                                                    </p>
-                                                    <div id="examnum">0</div>
+                                            <div class="exam-val row full-width">
+                                                <div class="col-md-12 row rowexams mb-3">
+                                                    <div class=" col-md-3 input-group">
+                                                        <select name="exam_theme[]" class="form-control border" id="">
+                                                            @foreach($themes as $theme)
+                                                            <option value="{{$theme->id}}"> {{$theme->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3 input-group" class="form-control border">
+                                                        <select name="exam_level[]" id="">
+                                                            @foreach($levels as $level)
+                                                            <option value="{{$level->id  }}">
+                                                                {{$level->difficult }}
+                                                            </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3 input-group">
+                                                        <input type="number" name="questionnum[]" value="0"
+                                                            class="form-control border">
+                                                    </div>
+                                                    <div class="col-md-3 input-group">
+                                                        <div onclick="deleterow(this)" class="btn btn-danger"
+                                                            class="form-control border"> xóa dòng
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="exam-footer row full-width">
+                                                <div class="col-md-12 row ">
+                                                    <div class="col-md-3 form-group">
+                                                        <p class="title">
+                                                            tổng số câu:
+                                                        </p>
+                                                        <div id="examnum">0</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
-
-
                     </div>
                 </div>
+
                 <div class="form-group col-md-12">
                     <label for="content">Ghi chú</label>
                     <textarea name="content" id="content" cols="10" rows="10" class="form-control"></textarea>
