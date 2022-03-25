@@ -106,6 +106,13 @@ class ExamsController extends Controller
         }
     }
 
+    public function execute(Request $request) {
+        $exam_staff = ExamStaffs::where('exam_id', $request->id)->where('staff_id', $request->user()->id)->first() ;
+        $data = $exam_staff->examQueRels()->with('question.relies')->paginate(5);
+        $data->appends(['oke' => 'okesmen'])->links() ;
+        dd($data->oke);
+    }
+
     public function result($id){
         $exam = ExamStaffs::where('exam_id', $id)->where('staff_id', Auth::user()->id)->get()->first();
         $id = $exam->id;

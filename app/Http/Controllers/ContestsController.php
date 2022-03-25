@@ -114,7 +114,6 @@ class ContestsController extends Controller
                 $bindings = [
                     'v_contest_id' => $contest->id,
                 ];
-
                 $insert_exam = 'thuctap.p_i_exam';
                 $init = DB::executeProcedure($insert_exam, $bindings);
             }

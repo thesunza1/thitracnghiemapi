@@ -71,7 +71,8 @@
                                         <?php $exam_staff =  App\Models\ExamStaffs::where('exam_id', $exam->id)->first();?>
                                         @if($exam_staff->count() !== 0)
                                         <a class="btn btn-success mr-1 ud-btn" name="id" value='{{ $exam->id }}'
-                                            href="{{route('exam.taking', ['id' => $exam->id])}}">
+                                            {{-- href="{{route('exam.taking', ['id' => $exam->id])}}"> --}}
+                                            href="{{route('exam.execute', ['id' => $exam->id])}}">
                                             @if($exam_staff->time_limit == null)
                                             bắt đầu thi </i>
                                             @else

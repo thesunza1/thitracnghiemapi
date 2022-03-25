@@ -112,6 +112,7 @@ Route::middleware(checkIssuerMaker::class)->group(
 //show exam for contest
 Route::get('/exam/index/{id}', [ExamsController::class, 'index'])->name('exam.index');
 Route::get('/exam/taking/{id}', [ExamsController::class, 'taking'])->name('exam.taking');
+Route::get('/exam/execute/{id}', [ExamsController::class, 'execute'])->name('exam.execute');
 Route::post('/test/{t_id}/q/{q_id}/a/{a_id}', [ReliesController::class, 'choose'])->name('exam.choose');
 Route::post('/exam/handin/{id}', function($id){
     $exam_staff = App\Models\ExamStaffs::where('exam_id', $id)->where('staff_id', Auth::user()->id)->first();
