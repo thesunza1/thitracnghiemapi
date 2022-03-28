@@ -8,7 +8,9 @@ use App\Models\ExamThemes;
 use App\Models\Contests;
 use App\Models\ExamDetails;
 use App\Models\ExamQueRel;
+use App\Models\ExamStaffChose;
 use App\Models\ExamStaffs;
+use Dflydev\DotAccessData\Data;
 use Illuminate\Support\Facades\Auth;
 
 class ExamsController extends Controller
@@ -108,9 +110,12 @@ class ExamsController extends Controller
 
     public function execute(Request $request) {
         $exam_staff = ExamStaffs::where('exam_id', $request->id)->where('staff_id', $request->user()->id)->first() ;
-        $data = $exam_staff->examQueRels()->with('question.relies')->paginate(5);
-        $data->appends(['oke' => 'okesmen'])->links() ;
-        dd($data->oke);
+        $data = $exam_staff->examQueRels()->with('question.relies' , function ($q) {
+         $q->orderByRaw('dbms_random.random');
+        })->with('question.num_chose')->orderBy('order_question')->paginate(10);
+        // dd($data);
+        $exam_choses = ExamStaffChose::where('exam_staff_id', $exam_staff->id);
+        return view('exams/execute')->with('exam_choses',  $exam_choses)->with('dt' , $data);
     }
 
     public function result($id){

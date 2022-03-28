@@ -33,5 +33,7 @@ class Questions extends Model
     public function staff() {
         return $this->belongsTo(Staffs::class,'staffcreated_id','id');
     }
-
+    public function num_chose() {
+        return $this->hasOne(Relies::class,'question_id')->selectRaw( 'relies.question_id , count(relies.id) as num')->where('relies.answer', 1)->groupBy('relies.question_id');
+    }
 }
