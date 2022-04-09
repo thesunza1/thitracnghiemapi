@@ -104,6 +104,7 @@ Route::middleware(checkIssuerMaker::class)->group(
             // dd($init);
             return redirect()->back();
         })->name('exam.duplicate');
+        Route::post('/exam/chose', [ExamsController::class,'chose'])->name('question.chose');
         Route::get('/exam/alltest/{id}',[ExamsController::class,'alltest'])->name('exam.alltest');
         Route::get('/test/{id}',[ExamsController::class,'test_detail'])->name('exam.test_detail');
     }
