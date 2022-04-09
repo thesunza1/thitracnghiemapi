@@ -120,9 +120,9 @@ class ExamsController extends Controller
             $q->orderByRaw('dbms_random.random');
         })->with('question.num_chose')->orderBy('order_question')->paginate(10);
         // dd($data);
-        $exam_choses = ExamStaffChose::where('exam_staff_id', $exam_staff->id)->pluck('relies_id');
-        // dd($exam_choses);
-        return view('exams/execute')->with('exam_choses', array($exam_choses))->with('dt', $data)->with('exam_staff', $exam_staff);
+        $exam_choses = ExamStaffChose::where('exam_staff_id', $exam_staff->id)->pluck('relies_id')->toArray();
+        // dd($check);
+        return view('exams/execute')->with('exam_choses', $exam_choses)->with('dt', $data)->with('exam_staff', $exam_staff);
     }
     public function chose(Request $request)
     {

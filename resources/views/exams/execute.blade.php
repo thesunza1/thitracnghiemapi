@@ -19,18 +19,17 @@
                 @foreach ($q->question->relies as $sttr => $r)
                 @if ( $q->question->num_chose->num == 1)
                 <input type="radio" onclick="check( {{ $r->id }} , ' ')" value="{{ $r->id  }}" {{ array_search( "$r->id"
-                    , $exam_choses)==false ? '' : 'checked' }} class="d-inline" name="chose{{ $sttq }}[]"
-                    style="margin-left: 10px">
+                    , $exam_choses) == '' ? '' : 'checked' }} class="d-inline" name="chose{{ $sttq }}[]"
+                style="margin-left: 10px">
                 <label class="d-inline"> {{++$sttr }} -
                     {{$r->noidung }} <br /></label>
                 @else
-                <input type="checkbox" onclick="check( {{ $r->id }}  , ' ')" value="{{ $r->id }}"
-                    checked=" {{   true    }}" class="d-inline" style="margin-left: 10px">
-                <label class="d-inline"> {{++$sttr }} - {{$r->noidung
-                    }} <br /></label>
+                <input type="checkbox" onclick="check( {{ $r->id }}  , ' ')" value="{{ $r->id }}" class="d-inline"
+                    style="margin-left: 10px" {{ array_search( "$r->id" , $exam_choses) == '' ? '' : 'checked' }}>
+                <label class="d-inline"> {{++$sttr }} - {{$r->noidung }}
+                    <br /></label>
                 @endif
                 @endforeach
-
             </div>
             @endforeach
 
