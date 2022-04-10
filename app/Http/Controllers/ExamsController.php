@@ -138,6 +138,7 @@ class ExamsController extends Controller
                     'exam_staff_id'  => $examStaffId,
                     'question_id' => $questionId,
                     'relies_id' => $relyId,
+                    'order_question' => 9
                 ]);
             }
             $statusCode = 2;
